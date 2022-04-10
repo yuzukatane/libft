@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyuzu <kyuzu@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kyuzu <kyuzu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 19:50:27 by kyuzu             #+#    #+#             */
-/*   Updated: 2022/04/10 09:54:15 by kyuzu            ###   ########.fr       */
+/*   Updated: 2022/04/10 16:05:29 by kyuzu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ int	main(void)
 	// strlcpy(cpydst1, cpysrc, size);
 	// printf("%s\n\n", cpydst1);
 
-	/*ft_strlcat*/						//to verify!
-	char 	catdst[100] = "Hello";
-	char 	catsrc[] = "ZZZZZ";
-	char 	catdst1[100] = "Hello";
-	size_t 	size = 7;
-	printf("\nft_strlcat\n");
-	printf("%lu : %s\n", ft_strlcat(catdst, catsrc, size), catdst);
-	printf("%lu : %s\n\n", strlcat(catdst1, catsrc, size), catdst1);
+	// /*ft_strlcat*/						//to verify!
+	// char 	catdst[100] = "Hello";
+	// char 	catsrc[] = "ZZZZZ";
+	// char 	catdst1[100] = "Hello";
+	// size_t 	size = 7;
+	// printf("\nft_strlcat\n");
+	// printf("%lu : %s\n", ft_strlcat(catdst, catsrc, size), catdst);
+	// printf("%lu : %s\n\n", strlcat(catdst1, catsrc, size), catdst1);
 
 	/* ft_memmove()*/
 	// char a[] = "abcde";
@@ -71,6 +71,28 @@ int	main(void)
 	// int d = 'A';
 	// printf("%c ", ft_tolower(d));
 	// printf("%c\n", tolower(d));
+
+	// /*ft_strchr && ft_strrchr*/
+	// char *str = "b01b23b45b";
+	// char a = 'b';
+
+	// printf("%s\n", ft_strchr(str, a));
+	// printf("%s\n", strchr(str, a));
+	// printf("%s\n", ft_strrchr(str, a));
+	// printf("%s\n", strrchr(str, a));
+
+	// /*ft_strcmp*/
+	// char *string1 = "Htllo";
+	// char *string2 = "Hello";
+
+	// printf("%d\n", ft_strncmp(string1, string2, 3));
+	// printf("%d\n", strncmp(string1, string2, 3));
+
+	/*ft_memchr*/
+	char *str = "b01b2\03b45b";
+	int a = '4';
+	size_t size = 120;
+	printf("%s\n", ft_memchr(str, a, size));
+	printf("%s\n", memchr(str, a, size));
 	
-	return (0);
 }

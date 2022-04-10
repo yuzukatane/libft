@@ -3,16 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kyuzu <kyuzu@student.42tokyo.jp>           +#+  +:+       +#+         #
+#    By: kyuzu <kyuzu@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/05 19:08:02 by kyuzu             #+#    #+#              #
-#    Updated: 2022/04/09 22:28:02 by kyuzu            ###   ########.fr        #
+#    Updated: 2022/04/10 15:57:27 by kyuzu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-SRCS = main.c ft_isascii.c ft_isalpha.c ft_bzero.c ft_isalnum.c ft_isdigit.c ft_isprint.c \
-	ft_memcpy.c ft_memmove.c ft_memset.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_toupper.c ft_tolower.c
+SRCS = ft_isascii.c ft_isalpha.c ft_bzero.c ft_isalnum.c ft_isdigit.c ft_isprint.c \
+	ft_memcpy.c ft_memmove.c ft_memset.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_toupper.c ft_tolower.c\
+	ft_strchr.c ft_strrchr.c ft_strncmp.c ft_memchr.c
 OBJS = $(SRCS:.c=.o)
 CFLAGS = -Wall -Wextra -Werror
 CC = gcc -c $(CFLAGS)
