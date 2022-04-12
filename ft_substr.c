@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyuzu <kyuzu@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/06 13:58:43 by kyuzu             #+#    #+#             */
-/*   Updated: 2022/04/10 21:51:57 by kyuzu            ###   ########.fr       */
+/*   Created: 2022/04/12 18:26:39 by kyuzu             #+#    #+#             */
+/*   Updated: 2022/04/12 20:08:40 by kyuzu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t		i;
-	char		*dst_byte;
-	const char	*src_byte;
+	char	*res;
 
-	if (dst == NULL && src == NULL)
-		return (dst);
-	dst_byte = (char *)dst;
-	src_byte = (char *)src;
-	i = 0;
-	while (i < n)
-	{
-		dst_byte[i] = src_byte[i];
-		i++;
-	}
-	return (dst);
+	if (ft_strlen(s) < len)
+		res = malloc((ft_strlen(s) + 1) * sizeof(char));
+	else
+		res = malloc((len + 1) * sizeof(char));
+	if (res == NULL || s == NULL)
+		return (NULL);
+	if (start >= ft_strlen(s))
+		*res = '\0';
+	else
+		ft_strlcpy(res, &s[start], len + 1);
+	return (res);
 }

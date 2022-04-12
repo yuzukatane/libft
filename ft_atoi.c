@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyuzu <kyuzu@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/06 13:58:43 by kyuzu             #+#    #+#             */
-/*   Updated: 2022/04/10 21:51:57 by kyuzu            ###   ########.fr       */
+/*   Created: 2022/04/11 21:11:04 by kyuzu             #+#    #+#             */
+/*   Updated: 2022/04/11 21:26:52 by kyuzu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+int	ft_atoi(char *str)
 {
-	size_t		i;
-	char		*dst_byte;
-	const char	*src_byte;
+	long long	number;
+	int			flag;
 
-	if (dst == NULL && src == NULL)
-		return (dst);
-	dst_byte = (char *)dst;
-	src_byte = (char *)src;
-	i = 0;
-	while (i < n)
+	flag = 0;
+	while ((*str >= 9 && *str <= 13) || *str == 32)
+		str++;
+	if (*str == '+')
+		str++;
+	else if (*str == '-')
 	{
-		dst_byte[i] = src_byte[i];
-		i++;
+		flag = 1;
+		str++;
 	}
-	return (dst);
+	number = 0;
+	while (*str >= '0' && *str <= '9')
+	{
+		number *= 10;
+		number = number + (*str - '0');
+		str++;
+	}
+	if (flag == 1)
+		number = -number;
+	return ((int)number);
 }

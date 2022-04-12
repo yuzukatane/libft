@@ -6,7 +6,7 @@
 #    By: kyuzu <kyuzu@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/06 10:51:12 by susami            #+#    #+#              #
-#    Updated: 2022/04/09 21:47:03 by kyuzu            ###   ########.fr        #
+#    Updated: 2022/04/11 22:54:30 by kyuzu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,11 +26,11 @@ LOCALREPO=libft-unit-test
 git_clone_if_none
 cd $LOCALREPO
 make f
-#cd $INITIAL_DIR
-#echo $(pwd)
-#echo "Tests by 'libftTester'"
-#REPOSRC=https://github.com/Tripouille/libftTester.git
-#LOCALREPO=libftTester
-#git_clone_if_none
-#cd $LOCALREPO
-#make m
+cd $INITIAL_DIR
+echo $(pwd)
+echo "Tests by 'libftTester'"
+REPOSRC=https://github.com/Tripouille/libftTester.git
+LOCALREPO=libftTester
+git_clone_if_none
+cd $LOCALREPO
+make m
