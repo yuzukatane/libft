@@ -6,7 +6,7 @@
 /*   By: kyuzu <kyuzu@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 17:21:10 by kyuzu             #+#    #+#             */
-/*   Updated: 2022/04/18 15:21:15 by kyuzu            ###   ########.fr       */
+/*   Updated: 2022/04/19 20:45:58 by kyuzu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t dstsize)
 	size_t	res;
 
 	if (dstsize == 0)
-		return ft_strlen(src);
+		return (ft_strlen(src));
 	i = ft_strlen(dest);
 	if (i >= dstsize)
 		return (dstsize + ft_strlen(src));
