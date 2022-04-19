@@ -1,38 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyuzu <kyuzu@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 21:11:04 by kyuzu             #+#    #+#             */
-/*   Updated: 2022/04/18 14:54:57 by kyuzu            ###   ########.fr       */
+/*   Created: 2022/04/15 15:23:37 by kyuzu             #+#    #+#             */
+/*   Updated: 2022/04/15 15:28:21 by kyuzu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
-int	ft_atoi(const char *str)
+void	ft_putchar_fd(char c, int fd)
 {
-	long long	number;
-	int			flag;
-
-	flag = 1;
-	while ((*str >= 9 && *str <= 13) || *str == 32)
-		str++;
-	if (*str == '+')
-		str++;
-	else if (*str == '-')
-	{
-		flag = -1;
-		str++;
-	}
-	number = 0;
-	while (ft_isdigit(*str) && *str != '\0')
-	{
-		number *= 10;
-		number = number + (*str - '0');
-		str++;
-	}
-	return ((int)(number * flag));
+	write(fd, &c, 1);
 }

@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyuzu <kyuzu@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 21:11:04 by kyuzu             #+#    #+#             */
-/*   Updated: 2022/04/18 14:54:57 by kyuzu            ###   ########.fr       */
+/*   Created: 2022/04/15 16:09:55 by kyuzu             #+#    #+#             */
+/*   Updated: 2022/04/15 17:36:38 by kyuzu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
-int	ft_atoi(const char *str)
+void	ft_putnbr_fd(int n, int fd)
 {
-	long long	number;
-	int			flag;
+	int			divisor;
+	long long	lln;
+	char		tmp;
 
-	flag = 1;
-	while ((*str >= 9 && *str <= 13) || *str == 32)
-		str++;
-	if (*str == '+')
-		str++;
-	else if (*str == '-')
+	lln = n;
+	if (lln < 0)
 	{
-		flag = -1;
-		str++;
+		lln = -lln;
+		write(fd, "-", 1);
 	}
-	number = 0;
-	while (ft_isdigit(*str) && *str != '\0')
+	divisor = 1;
+	while (lln / 10 >= divisor)
+		divisor *= 10;
+	while (divisor > 0)
 	{
-		number *= 10;
-		number = number + (*str - '0');
-		str++;
+		tmp = '0' + lln / divisor;
+		write (fd, &tmp, 1);
+		lln %= divisor;
+		divisor /= 10;
 	}
-	return ((int)(number * flag));
 }

@@ -6,7 +6,7 @@
 /*   By: kyuzu <kyuzu@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 13:58:43 by kyuzu             #+#    #+#             */
-/*   Updated: 2022/04/10 21:51:57 by kyuzu            ###   ########.fr       */
+/*   Updated: 2022/04/13 09:50:24 by kyuzu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	char		*dst_byte;
 	const char	*src_byte;
 
-	if (dst == NULL && src == NULL)
+	if (dst == src || n == 0)
 		return (dst);
 	dst_byte = (char *)dst;
 	src_byte = (char *)src;

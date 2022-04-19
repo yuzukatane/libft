@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyuzu <kyuzu@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 21:11:04 by kyuzu             #+#    #+#             */
-/*   Updated: 2022/04/18 14:54:57 by kyuzu            ###   ########.fr       */
+/*   Created: 2022/04/15 11:06:29 by kyuzu             #+#    #+#             */
+/*   Updated: 2022/04/17 10:06:45 by kyuzu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_atoi(const char *str)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	long long	number;
-	int			flag;
+	unsigned int	i;
 
-	flag = 1;
-	while ((*str >= 9 && *str <= 13) || *str == 32)
-		str++;
-	if (*str == '+')
-		str++;
-	else if (*str == '-')
+	i = 0;
+	if (s[i] != '\0')
 	{
-		flag = -1;
-		str++;
+		while (s[i] != '\0')
+		{
+			f(i, &s[i]);
+			i++;
+		}
 	}
-	number = 0;
-	while (ft_isdigit(*str) && *str != '\0')
-	{
-		number *= 10;
-		number = number + (*str - '0');
-		str++;
-	}
-	return ((int)(number * flag));
 }

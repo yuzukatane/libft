@@ -6,7 +6,7 @@
 /*   By: kyuzu <kyuzu@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 16:09:22 by kyuzu             #+#    #+#             */
-/*   Updated: 2022/04/11 22:50:07 by kyuzu            ###   ########.fr       */
+/*   Updated: 2022/04/13 10:07:36 by kyuzu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,20 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 	char	*dst_byte;
 	char	*src_byte;
 
-	if (dst == NULL && src == NULL)
+	if (dst == src || n == 0)
 		return (dst);
-	else if (dst < src || dst - src > (long)n)
+	else if (dst < src || dst > src + n)
 		ft_memcpy(dst, src, n);
 	else
 	{
 		dst_byte = (char *)dst;
-		src_byte = (char *)src;
-		i = n - 1;
+		src_byte = (char *)src;	
+		i = n;
 		while (i > 0)
 		{
-			dst_byte[i] = src_byte[i];
 			i--;
-		}
-		if (i == 0)
 			dst_byte[i] = src_byte[i];
+		}
 	}
 	return (dst);
 }

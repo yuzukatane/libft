@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyuzu <kyuzu@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 21:11:04 by kyuzu             #+#    #+#             */
-/*   Updated: 2022/04/18 14:54:57 by kyuzu            ###   ########.fr       */
+/*   Created: 2022/04/15 10:49:23 by kyuzu             #+#    #+#             */
+/*   Updated: 2022/04/15 11:03:00 by kyuzu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-int	ft_atoi(const char *str)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	long long	number;
-	int			flag;
+	unsigned int	i;
+	char			*res;
 
-	flag = 1;
-	while ((*str >= 9 && *str <= 13) || *str == 32)
-		str++;
-	if (*str == '+')
-		str++;
-	else if (*str == '-')
+	res = malloc((ft_strlen(s) + 1) * sizeof(char));
+	if (res == NULL)
+	 	return (NULL);
+	i = 0;
+	while(s[i] != '\0')
 	{
-		flag = -1;
-		str++;
+		res[i] = f(i, s[i]);
+		i++;
 	}
-	number = 0;
-	while (ft_isdigit(*str) && *str != '\0')
-	{
-		number *= 10;
-		number = number + (*str - '0');
-		str++;
-	}
-	return ((int)(number * flag));
+	res[i] = '\0';
+	return (res);
 }
