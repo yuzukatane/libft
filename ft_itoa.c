@@ -6,7 +6,7 @@
 /*   By: kyuzu <kyuzu@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 09:36:32 by kyuzu             #+#    #+#             */
-/*   Updated: 2022/04/15 10:26:07 by kyuzu            ###   ########.fr       */
+/*   Updated: 2022/04/19 20:45:12 by kyuzu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ char	*ft_to_array(long long n, char *res)
 
 char	*ft_itoa(int n)
 {
-	char	*res;
-	int		size;
-	long long lln;
+	char		*res;
+	int			size;
+	long long	lln;
 
 	lln = n;
 	size = ft_get_size(lln);
