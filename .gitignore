@@ -3,5 +3,5 @@ a.out
 libft.a
 libft-tester-tokyo
 libftTester
-main.c
 run-test.sh
+main.c
