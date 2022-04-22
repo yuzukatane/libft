@@ -6,7 +6,7 @@
 /*   By: kyuzu <kyuzu@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 16:09:46 by kyuzu             #+#    #+#             */
-/*   Updated: 2022/04/17 16:30:18 by kyuzu            ###   ########.fr       */
+/*   Updated: 2022/04/22 20:26:40 by kyuzu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	del(lst);
+	del(lst->content);
+	free(lst);
 }

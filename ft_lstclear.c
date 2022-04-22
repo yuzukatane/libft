@@ -6,7 +6,7 @@
 /*   By: kyuzu <kyuzu@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 16:38:32 by kyuzu             #+#    #+#             */
-/*   Updated: 2022/04/18 10:27:41 by kyuzu            ###   ########.fr       */
+/*   Updated: 2022/04/22 20:58:30 by kyuzu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	while (*lst != NULL)
 	{
 		tmp = (*lst)->next;
-		del(*lst);
+		ft_lstdelone(*lst, del);
+		free(*lst);
 		*lst = tmp;
 	}
 }
